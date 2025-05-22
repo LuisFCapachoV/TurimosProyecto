@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios en Valle Encantado</title>
+    <link rel="stylesheet" href="./css/estilos_dos.css" type="text/css">
+</head>
+
+<body>
+    <header class="encabezado">
+        <h1>Bienvenidos a Valle Encantado</h1>
+        <p>Descubre un lugar lleno de magia, naturaleza y cultura.</p>
+        <nav class="menu">
+            <figure id="logo">
+                <img src="./img/logo.png" alt="Logo">
+            </figure>
+
+            <ul>
+                <li><a href="turismo.html" class="elemento">Inicio</a></li>
+                <li><a href="servicios.html" class="elemento activo">Servicios</a></li>
+                <li><a href="hoteles.html" class="elemento">Hoteles</a></li>
+                <li><a href="mas.html" class="elemento">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenedor-principal">
+        <section id="servicios">
+            <h2>Servicios Disponibles</h2>
+
+            <p><em>Explora nuestras opciones diseñadas para viajeros como tú. Ya sea que busques aventura, comodidad o
+                    cultura, tenemos algo especial.</em></p>
+
+            <div class="desplegable">
+                <details>
+                <summary><strong>Guías turísticos</strong></summary>
+                <p>Conoce los lugares más emblemáticos con un guía local experto. Disponible en español e inglés. Ideal
+                    para
+                    grupos o viajeros individuales.</p>
+                <ul>
+                    <li>Duración: 2-4 horas</li>
+                    <li>Incluye entradas a sitios históricos</li>
+                    <li>Recomendado para primeras visitas</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary><strong>Excursiones de aventura</strong></summary>
+                <p>Senderismo, ciclismo de montaña y paseos en bote por el Lago Cristalino. Aventura asegurada en
+                    contacto
+                    con la naturaleza.</p>
+                <ul>
+                    <li>Guías especializados en cada actividad</li>
+                    <li>Equipo incluido</li>
+                    <li>Edad mínima: 12 años</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary><strong>Transporte privado</strong></summary>
+                <p>Ofrecemos traslados desde y hacia el aeropuerto, además de transporte local entre atracciones.</p>
+                <ul>
+                    <li>Disponible 24/7 con reserva previa</li>
+                    <li>Vehículos con aire acondicionado</li>
+                    <li>Choferes con experiencia turística</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary><strong>Paquetes personalizados</strong></summary>
+                <p>Crea un plan de viaje único según tus intereses. Ideal para familias, parejas o grupos pequeños.</p>
+                <ul>
+                    <li>Asesoría personalizada gratuita</li>
+                    <li>Combinación de actividades y alojamiento</li>
+                    <li>100% ajustado a tu ritmo</li>
+                </ul>
+            </details>
+            </div>
+        </section>
+
+        <section class="grid-galeria">
+            <div class="grid-item" id="galeria">
+                <h2>Estas experiencias reflejan lo que nuestros servicios pueden ofrecerte: </h2>
+                <p>Algunos momentos inolvidables:</p>
+                <p>Galeria de imagenes:</p>
+
+                <div class="carousel-container">
+                    <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#10094;</button>
+
+                    <div class="carousel-track" id="carouselTrack">
+                        <img src="./img/fondodos.jpeg" alt="Paisaje natural de Valle Encantado">
+                        <img src="./img/Plato_típico.jpg" alt="Plato típico de la región">
+                        <img src="./img/Evento_cultural.jpg" alt="Evento cultural local">
+                        <img src="./img/Lago_reflejando_cielo.jpg" alt="Lago reflejando el cielo">
+                        <img src="./img/Persona_senderismo.jpg" alt="Personas en senderismo">
+                        <img src="./img/Puesto_artesanal.jpg" alt="Puesto de feria artesanal">
+                    </div>
+                    <button class="carousel-btn next" onclick="moveCarousel(1)">&#10095;</button>
+                </div>
+            </div>
+        </section>
+        <script>
+            const track = document.getElementById("carouselTrack");
+            let currentIndex = 0;
+            let itemWidth = 0;
+            let totalItems = 0;
+
+            window.onload = () => {
+                const items = Array.from(track.children);
+                itemWidth = items[0].offsetWidth + 10;
+                totalItems = items.length;
+
+                items.forEach(item => {
+                    track.appendChild(item.cloneNode(true));
+                });
+                items.forEach(item => {
+                    track.insertBefore(item.cloneNode(true), track.firstChild);
+                });
+
+                currentIndex = totalItems;
+                updateCarousel(false);
+            };
+
+            function moveCarousel(direction) {
+                currentIndex += direction;
+                updateCarousel(true);
+            }
+
+            function updateCarousel(animate) {
+                if (!animate) {
+                    track.style.transition = "none";
+                } else {
+                    track.style.transition = "transform 0.5s ease-in-out";
+                }
+
+                track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+
+                setTimeout(() => {
+                    if (currentIndex >= totalItems * 2) {
+                        currentIndex = totalItems;
+                        track.style.transition = "none";
+                        track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+                    }
+                    if (currentIndex < totalItems) {
+                        currentIndex = totalItems + (currentIndex % totalItems);
+                        track.style.transition = "none";
+                        track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+                    }
+                }, 510);
+            }
+        </script>
+
+        <div class="reserva">
+            <h3>¿Listo para tu próxima aventura?</h3>
+            <input type="button" value="Reserva" onclick="window.location.href='mas.html'" class="btn">
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Turismo en Valle Encantado. Todos los derechos reservados.</p>
+        <p>Síguenos en:
+            <strong><a href="#">Instagram</a> |</strong>
+            <strong><a href="#">Facebook</a> |</strong>           
+            <strong><a href="#">YouTube</a> </strong>
+        </p>
+    </footer>
+
+</body>
+
+</html>

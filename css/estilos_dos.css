@@ -1,0 +1,330 @@
+/* cuerpo de todos los documentos */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    background-color: rgb(247, 164, 63);
+    /* background-color: rgb(241, 195, 110); */
+}
+
+@media (max-width: 600px) {
+
+    body, .encabezado,
+    .menu ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contenedor-principal #hoteles .grid-hoteles    ,
+    .contenedor-principal .grid-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+}
+
+/* Encabezado de las paginas */
+.encabezado {
+    background-image: url(../img/fondoplaya.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #f0f8ff;
+    padding: 20px 40px;
+    position: relative;
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 12px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#logo {
+    flex-shrink: 0;
+    margin-left: -40px;
+}
+
+#logo img {
+    display: block;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.menu ul li a.elemento {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    padding: 8px 12px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 4px;
+    display: block;
+}
+
+.menu ul li a.elemento:hover,
+.menu ul li a.elemento:focus {
+    background-color: rgb(247, 164, 63);
+    color: #fff;
+    outline: none;
+}
+
+nav a:hover,
+nav .activo {
+    background-color: rgb(247, 164, 63);
+}
+
+.encabezado h1 {
+    margin: 0 0 5px;
+    font-size: 2.5rem;
+    color: white;
+    text-align: center;
+}
+
+.encabezado p {
+    margin: 0 0 20px;
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+}
+
+.contenedor-principal {
+    background-color: white;
+    padding: 10px;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+/* Secciones de la pastalla turismo.html */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 20px;
+}
+
+.grid-item {
+    background-color: rgb(252, 245, 237);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.imagen-seccion {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1em;
+    border-radius: 10px;
+}
+
+/* Carrusel de iagenes, estilos del acordeon de la pagina servicios.html */
+.desplegable {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    gap: 30px;
+    justify-items: center;
+    padding: 0 20px;
+}
+
+details {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: rgb(252, 245, 237);
+}
+
+summary {
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 0.3rem;
+}
+
+summary:hover {
+    color: darkorange;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    max-width: 960px;
+    margin: auto;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 10px;
+}
+
+.carousel-track img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    font-size: 24px;
+    border-radius: 50%;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.reserva {
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.btn {
+    background-color: darkorange;
+    color: white;
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: rgb(252, 157, 41);
+}
+
+/* Todos los estilos de la pagina hoteles.html */
+#hoteles .intro {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.grid-hoteles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 30px;
+    justify-items: center;
+    padding: 0 20px;
+}
+
+.hotel {
+    max-width: 350px;
+    text-align: center;
+}
+
+.hotel img {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 10px;
+    max-width: 100%;
+    height: auto;
+}
+
+.hotel img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* El estilo del contenido de la pagina mas, que es un formulario */
+.contacto-texto {
+    margin-left: 30px;
+}
+
+form {
+    background-color: rgb(252, 245, 237);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+
+form input,
+form textarea {
+    width: calc(100% - 10px);
+    padding: 10px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form input[type="submit"] {
+    background-color: darkorange;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+button {
+    width: 50px;
+}
+
+/* El pie de pagina de todas las pantallas */
+footer {
+    background-color: rgba(250, 138, 46, 0.89);
+    color: white;
+    padding: 15px 40px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer a {
+    /* color: rgba(250, 138, 46, 0.89); */
+    color: white;
+    text-decoration: none;
+    margin: 0 5px;
+    /* font-size: 20px; */
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.buscador {
+      margin: 20px;
+    }
+    input[type="text"] {
+      padding: 8px;
+      width: 300px;
+    }
+    button {
+      padding: 8px 12px;
+ }

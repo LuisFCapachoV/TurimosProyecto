@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Valle Encantado</title>
+    <link rel="stylesheet" href="./css/estilos_dos.css" type="text/css">
+</head>
+
+<body>
+    <header class="encabezado">
+        <h1>Bienvenidos a Valle Encantado</h1>
+        <p>Descubre un lugar lleno de magia, naturaleza y cultura.</p>
+        <nav class="menu">
+            <figure id="logo">
+                <img src="./img/logo.png" alt="Logo">
+            </figure>
+
+            <ul>
+                <li><a href="turismo.html" class="elemento">Inicio</a></li>
+                <li><a href="servicios.html" class="elemento">Servicios</a></li>
+                <li><a href="hoteles.html" class="elemento">Hoteles</a></li>
+                <li><a href="mas.html" class="elemento activo">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenedor-principal">
+        <section id="contacto">
+            <h2 class="contacto-texto">¡Contáctanos!</h2>
+            <p class="contacto-texto">Si tienes preguntas, dudas o necesitas más información, no dudes en escribirnos. ¡Estamos aquí para
+                ayudarte!
+            </p>
+
+            <form id="formulario-contacto">
+                <label for="nombre">Nombre:</label><br>
+                <input type="text" id="nombre" name="nombre" required><br><br>
+
+                <label for="email">Correo electrónico:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="mensaje">Mensaje:</label><br>
+                <textarea id="mensaje" name="mensaje" rows="4" cols="40" required></textarea><br><br>
+
+                <input type="submit" value="Enviar" class="button">
+            </form>
+
+        </section>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const formulario = document.getElementById("formulario-contacto");
+
+                formulario.addEventListener("submit", function (event) {
+                    event.preventDefault();
+
+                    const nombre = document.getElementById("nombre").value;
+
+                    alert(nombre + ", solicitud agregada.");
+
+                    formulario.reset();
+                });
+            });
+        </script>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Turismo en Valle Encantado. Todos los derechos reservados.</p>
+        <p>Síguenos en:
+            <strong><a href="#">Instagram</a> |</strong>
+            <strong><a href="#">Facebook</a> |</strong>           
+            <strong><a href="#">YouTube</a> </strong>
+        </p>
+    </footer>
+
+</body>
+
+</html>
